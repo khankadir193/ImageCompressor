@@ -5,6 +5,7 @@ export const CompressComp = () => {
     const [compressedImage, setCompressedImage] = useState(null);
 
   const handleImageUpload = async (e) => {
+    console.log('e....???',e.target);
     const file = e.target.files[0];
     const compressor = new ImageCompressor();
     const compressedFile = await compressor.compress(file);
