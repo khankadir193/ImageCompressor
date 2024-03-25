@@ -9,6 +9,8 @@ const ImageUploader = () => {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     console.log('file...',file);
+    // console.log('OriginalSize..',file.size,'bytes');
+    console.log('fileSize:',String(Math.round(file.size/1024/1024)).trim(),'MB');
     console.log('URL.createObjectURL(selectedImage)',URL.createObjectURL(file));
     setBlobURL(URL.createObjectURL(file));
     setSelectedImage(file);

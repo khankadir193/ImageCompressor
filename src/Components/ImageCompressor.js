@@ -20,6 +20,19 @@ const ImageCompressor = ({ blobUrl }) => {
       );
     };
     img.src = blobUrl;
+    getImageSize(compressedBlobUrl);
+  };
+
+  const getImageSize = async (blobUrl) => {
+    try {
+      const response = await fetch(blobUrl);
+      const blob = await response.blob();
+      const imageSize = blob.size;
+      console.log('CompressedSize..',imageSize/1024,'MB');
+      // console.log('Image size:', imageSize, 'bytes');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
