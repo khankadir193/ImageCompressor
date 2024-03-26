@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  background-image: url('./Components/garden.jpg');
+  /* height: 100vh; */
+  min-height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
@@ -24,15 +30,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+  text-decoration: none;
+  color: violet;
 }

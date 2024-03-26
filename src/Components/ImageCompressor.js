@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 
 const ImageCompressor = ({ blobUrl,imageType }) => {
   const [compressedBlobUrl, setCompressedBlobUrl] = useState(null);
@@ -54,7 +55,7 @@ const ImageCompressor = ({ blobUrl,imageType }) => {
           <img src={compressedBlobUrl} alt="Compressed" style={{ maxWidth: '100%', maxHeight: '200px' }} />
           <h2>{`ComperssImageSize:-${compressImage && compressImgSize} Bytes`}</h2>
           <a href={compressedBlobUrl} download="compressed_image.jpg">
-            Download Compressed Image
+            Download
           </a>
         </div>
       )}
