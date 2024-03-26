@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
-const ImageCompressor = ({ blobUrl }) => {
+const ImageCompressor = ({ blobUrl,imageType }) => {
   const [compressedBlobUrl, setCompressedBlobUrl] = useState(null);
   const [compressImgSize, setCompressImgSize] = useState(null);
 
 
   const compressImage = () => {
+    console.log('blobUrl...',blobUrl);
+    // const imgFormat = ['jpg','jpeg','png'];
+    console.log('imgFormat..', imageType);
     const img = new Image();
     img.onload = () => {
       const canvas = document.createElement('canvas');
@@ -17,7 +20,8 @@ const ImageCompressor = ({ blobUrl }) => {
         (blob) => {
           setCompressedBlobUrl(URL.createObjectURL(blob));
         },
-        'image/jpeg', // Change to desired output format (e.g., 'image/png')
+        imageType,
+        // 'image/jpeg', // Change to desired output format (e.g., 'image/png')
         0.5 // Adjust compression quality (0.0 - 1.0)
       );
     };

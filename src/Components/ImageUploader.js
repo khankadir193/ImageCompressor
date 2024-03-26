@@ -6,6 +6,9 @@ const ImageUploader = () => {
   const [blobURL,setBlobURL] = useState();
   const [isBlob,setIsBlob] = useState();
   const [originalImgSize,setOriginalImgSize] = useState();
+  const [imageType,setImageType] = useState();
+
+  
 
 
   const handleImageChange = (event) => {
@@ -20,6 +23,7 @@ const ImageUploader = () => {
     setOriginalImgSize(file.size);
     // Accessing the webkitRelativePath property
     console.log('webkitRelativePath:', file.webkitRelativePath);
+    setImageType(file.type);
   };
 
   return (
@@ -38,7 +42,7 @@ const ImageUploader = () => {
         </div>
       )}
       {
-        isBlob && <ImageCompressor blobUrl={blobURL} />
+        isBlob && <ImageCompressor blobUrl={blobURL} imageType={imageType} />
       }
     </div>
   );
