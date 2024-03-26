@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 const ImageCompressor = ({ blobUrl }) => {
   const [compressedBlobUrl, setCompressedBlobUrl] = useState(null);
+  const [compressImgSize, setCompressImgSize] = useState(null);
+
 
   const compressImage = () => {
     const img = new Image();
@@ -28,8 +30,9 @@ const ImageCompressor = ({ blobUrl }) => {
       const response = await fetch(blobUrl);
       const blob = await response.blob();
       const imageSize = blob.size;
-      console.log('CompressedSize..',imageSize/1024,'MB');
-      // console.log('Image size:', imageSize, 'bytes');
+      // console.log('CompressedSize..',imageSize,'MB');
+      console.log('Image size:', imageSize, 'bytes');
+      setCompressImgSize(imageSize);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -45,6 +48,10 @@ const ImageCompressor = ({ blobUrl }) => {
         <div>
           <h3>Compressed Image</h3>
           <img src={compressedBlobUrl} alt="Compressed" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+          <h2>{`ComperssImageSize:-${compressImage && compressImgSize} Bytes`}</h2>
+          <a href={compressedBlobUrl} download="compressed_image.jpg">
+            Download Compressed Image
+          </a>
         </div>
       )}
     </div>
